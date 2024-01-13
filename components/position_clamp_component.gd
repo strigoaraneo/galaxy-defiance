@@ -1,13 +1,16 @@
 class_name PositionClampComponent
 extends Node
 
+
 @export var actor: Node2D
 @export var margin: int = 8
+
 
 var left_border: int = 0
 var right_border: int = ProjectSettings.get_setting("display/window/size/viewport_width")
 var top_border: int = 0
 var bottom_border: int = ProjectSettings.get_setting("display/window/size/viewport_height")
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

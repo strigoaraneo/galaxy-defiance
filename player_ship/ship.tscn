@@ -1,10 +1,75 @@
-[gd_scene load_steps=10 format=3 uid="uid://cikmkfajfd2gb"]
+[gd_scene load_steps=22 format=3 uid="uid://cikmkfajfd2gb"]
 
+[ext_resource type="Script" path="res://player_ship/ship.gd" id="1_piq53"]
 [ext_resource type="Texture2D" uid="uid://benpkbm8dnqrr" path="res://asstes/ship.png" id="1_rwgxr"]
-[ext_resource type="Script" path="res://components/move.gd" id="2_vuk4x"]
-[ext_resource type="Script" path="res://components/move_input.gd" id="3_khkch"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="2_vuk4x"]
+[ext_resource type="Script" path="res://components/move_input_component.gd" id="3_khkch"]
 [ext_resource type="Resource" uid="uid://cncj538x7blgi" path="res://player_ship/ship_move_stats.tres" id="4_fnvlq"]
-[ext_resource type="Script" path="res://components/position_clamp.gd" id="5_2ibn0"]
+[ext_resource type="Script" path="res://components/position_clamp_component.gd" id="5_2ibn0"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="7_p2niy"]
+[ext_resource type="PackedScene" uid="uid://dgt26fi2iww3b" path="res://projectiles/laser.tscn" id="8_3sp5o"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="9_ji4m4"]
+[ext_resource type="Texture2D" uid="uid://4yv02nao3eh1" path="res://asstes/ship_flame.png" id="10_4yuo5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj2vg"]
+atlas = ExtResource("10_4yuo5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx23o"]
+atlas = ExtResource("10_4yuo5")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oph3i"]
+atlas = ExtResource("10_4yuo5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2mnv"]
+atlas = ExtResource("10_4yuo5")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr1dh"]
+atlas = ExtResource("10_4yuo5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5fwa"]
+atlas = ExtResource("10_4yuo5")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u1n58"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj2vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx23o")
+}],
+"loop": true,
+"name": &"bank_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oph3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2mnv")
+}],
+"loop": true,
+"name": &"bank_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr1dh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5fwa")
+}],
+"loop": true,
+"name": &"center",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mm67d"]
 atlas = ExtResource("1_rwgxr")
@@ -46,8 +111,18 @@ animations = [{
 }]
 
 [node name="Ship" type="Node2D"]
+script = ExtResource("1_piq53")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="ShipSprites" type="Node2D" parent="."]
+
+[node name="FlameAnimatedSprite2D" type="AnimatedSprite2D" parent="ShipSprites"]
+unique_name_in_owner = true
+position = Vector2(-1, 14)
+sprite_frames = SubResource("SpriteFrames_u1n58")
+animation = &"center"
+autoplay = "center"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ShipSprites"]
 sprite_frames = SubResource("SpriteFrames_2x2x5")
 animation = &"center"
 autoplay = "center"
@@ -64,3 +139,22 @@ move_stats = ExtResource("4_fnvlq")
 [node name="PositionClampComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("5_2ibn0")
 actor = NodePath("..")
+
+[node name="LeftMuzzle" type="Marker2D" parent="."]
+position = Vector2(-6, -4)
+
+[node name="RightMuzzle" type="Marker2D" parent="."]
+position = Vector2(5, -4)
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("7_p2niy")
+spawn_scene = ExtResource("8_3sp5o")
+
+[node name="FireRateTimer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("9_ji4m4")
+sprite = NodePath("../ShipSprites")
+scale_amount = Vector2(1.2, 1.2)
