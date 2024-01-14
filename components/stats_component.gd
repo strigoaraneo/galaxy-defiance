@@ -4,7 +4,7 @@ extends Node
 
 @export var health: int = 1:
 	set(value):
-		health = 1
+		health = value
 		# Signal out that the health has changed
 		health_changed.emit()
 
