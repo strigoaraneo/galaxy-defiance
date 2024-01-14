@@ -8,4 +8,5 @@
 [node name="Ship" parent="." instance=ExtResource("1_xc17h")]
 position = Vector2(80, 216)
 
-[node name="SpaceBackground" parent="." instance=ExtResource("2_nve0y")]
+[node name="SpaceBackground" parent="." node_paths=PackedStringArray("player_ship") instance=ExtResource("2_nve0y")]
+player_ship = NodePath("../Ship")

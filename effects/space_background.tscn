@@ -10,7 +10,7 @@ script = ExtResource("1_gehk6")
 
 [node name="SpaceLayer" type="ParallaxLayer" parent="."]
 unique_name_in_owner = true
-motion_mirroring = Vector2(0, 240)
+motion_mirroring = Vector2(160, 240)
 
 [node name="TextureRect" type="TextureRect" parent="SpaceLayer"]
 offset_right = 160.0
@@ -20,7 +20,7 @@ stretch_mode = 1
 
 [node name="FarStarsLayer" type="ParallaxLayer" parent="."]
 unique_name_in_owner = true
-motion_mirroring = Vector2(0, 240)
+motion_mirroring = Vector2(160, 240)
 
 [node name="TextureRect" type="TextureRect" parent="FarStarsLayer"]
 offset_right = 160.0
@@ -30,7 +30,7 @@ stretch_mode = 1
 
 [node name="CloseStarsLayer" type="ParallaxLayer" parent="."]
 unique_name_in_owner = true
-motion_mirroring = Vector2(0, 240)
+motion_mirroring = Vector2(160, 240)
 
 [node name="TextureRect" type="TextureRect" parent="CloseStarsLayer"]
 offset_right = 160.0
