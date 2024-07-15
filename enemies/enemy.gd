@@ -8,6 +8,7 @@ extends Node2D
 @onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
+@onready var destroy_component: DestroyComponent = $DestroyComponent
 
 
 func _ready() -> void:
@@ -19,3 +20,8 @@ func _ready() -> void:
 		flash_component.flash()
 		shake_component.tween_shake()
 	)
+
+	# The hit_hurtbox signal takes a function with one argument,
+	# but the queue_free function doesn't take any arguments.
+	# So we need to unbind 1 argument from destroy_component.
+	hitbox_component.hit_hurtbox.connect(destroy_component.destroy.unbind(1))

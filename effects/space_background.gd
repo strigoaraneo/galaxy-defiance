@@ -21,6 +21,8 @@ func _process(delta: float) -> void:
 	close_stars_layer.motion_offset.y += 10 * delta
 	far_stars_layer.motion_offset.y += 20 * delta
 
+	# This block of code fails when the player ship is destroyed. TODO: Fix it.
+	"""
 	if ship_move_component.velocity.x < 0:
 		if player_ship.position.x > ship_position_clamp_component.left_border + ship_position_clamp_component.margin: 
 			space_layer.motion_offset.x += 2 * delta
@@ -31,4 +33,4 @@ func _process(delta: float) -> void:
 			space_layer.motion_offset.x -= 2 * delta
 			close_stars_layer.motion_offset.x -= 5 * delta
 			far_stars_layer.motion_offset.x -= 10 * delta
-
+	"""
