@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dvqsnd4cj1j2f"]
+
+[ext_resource type="FontFile" uid="uid://cm1c405i4urc" path="res://fonts/Shantell_Sans-Bouncy_Bold.otf" id="1_4tyvx"]
+
+[resource]
+font = ExtResource("1_4tyvx")

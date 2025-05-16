@@ -13,6 +13,6 @@ var bottom_border: int = ProjectSettings.get_setting("display/window/size/viewpo
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	actor.global_position.x = clamp(actor.global_position.x, left_border + margin, right_border - margin)
 	actor.global_position.y = clamp(actor.global_position.y, top_border + margin, bottom_border - margin)

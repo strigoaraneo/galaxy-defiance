@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://dgt26fi2iww3b"]
 
-[ext_resource type="Texture2D" uid="uid://c0fjjhpyn1al5" path="res://asstes/laser_small.png" id="1_2wrn3"]
-[ext_resource type="Script" path="res://components/move_component.gd" id="1_35ja2"]
-[ext_resource type="Script" path="res://projectiles/laser.gd" id="1_kp4nb"]
-[ext_resource type="Script" path="res://components/scale_component.gd" id="4_nhtxi"]
-[ext_resource type="Script" path="res://components/flash_component.gd" id="5_5wjel"]
-[ext_resource type="Script" path="res://components/hitbox_component.gd" id="6_sl7fp"]
+[ext_resource type="Texture2D" uid="uid://c0fjjhpyn1al5" path="res://assets/laser_small.png" id="1_2wrn3"]
+[ext_resource type="Script" uid="uid://qunylvtdblf5" path="res://components/move_component.gd" id="1_35ja2"]
+[ext_resource type="Script" uid="uid://blu5n1w4ek5s1" path="res://projectiles/laser.gd" id="1_kp4nb"]
+[ext_resource type="Script" uid="uid://blce7jfuf7eq6" path="res://components/scale_component.gd" id="4_nhtxi"]
+[ext_resource type="Script" uid="uid://bd8in37lk24fh" path="res://components/flash_component.gd" id="5_5wjel"]
+[ext_resource type="Script" uid="uid://3s76c42fptrs" path="res://components/hitbox_component.gd" id="6_sl7fp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsk1i"]
 size = Vector2(6, 16)

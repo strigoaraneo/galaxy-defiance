@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://luix7a2ngacn"
-path="res://.godot/imported/far_stars.png-d758a5fdd0028b1884b205707a8084ec.ctex"
+uid="uid://upe320tdjiq1"
+path="res://.godot/imported/explosion.png-3d70b655f829d2ec362997bd3be8e3ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asstes/far_stars.png"
-dest_files=["res://.godot/imported/far_stars.png-d758a5fdd0028b1884b205707a8084ec.ctex"]
+source_file="res://assets/explosion.png"
+dest_files=["res://.godot/imported/explosion.png-3d70b655f829d2ec362997bd3be8e3ae.ctex"]
 
 [params]
 

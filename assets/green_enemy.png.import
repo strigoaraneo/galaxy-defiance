@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dftlvbfa80ryt"
-path="res://.godot/imported/space.png-2c0f11fc106c2d494a6acd54f9906f27.ctex"
+uid="uid://c177c7cangjx"
+path="res://.godot/imported/green_enemy.png-8fb70307736ed0abcd687d883427f3ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asstes/space.png"
-dest_files=["res://.godot/imported/space.png-2c0f11fc106c2d494a6acd54f9906f27.ctex"]
+source_file="res://assets/green_enemy.png"
+dest_files=["res://.godot/imported/green_enemy.png-8fb70307736ed0abcd687d883427f3ec.ctex"]
 
 [params]
 

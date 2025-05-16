@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://virqucb7n32k"]
+[gd_scene load_steps=5 format=3 uid="uid://virqucb7n32k"]
 
+[ext_resource type="Script" uid="uid://jl5rj133ajg2" path="res://world.gd" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://cikmkfajfd2gb" path="res://player_ship/ship.tscn" id="1_xc17h"]
 [ext_resource type="PackedScene" uid="uid://c2aqpppb7lb4k" path="res://effects/space_background.tscn" id="2_nve0y"]
-[ext_resource type="PackedScene" uid="uid://cw7x0wl2kow4l" path="res://enemies/green_enemy.tscn" id="3_4cow7"]
+[ext_resource type="PackedScene" uid="uid://csjyujhloicet" path="res://enemies/enemy_generator.tscn" id="3_ktlip"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_aqk2v")
 
 [node name="Ship" parent="." instance=ExtResource("1_xc17h")]
 position = Vector2(80, 216)
@@ -12,11 +14,5 @@ position = Vector2(80, 216)
 [node name="SpaceBackground" parent="." node_paths=PackedStringArray("player_ship") instance=ExtResource("2_nve0y")]
 player_ship = NodePath("../Ship")
 
-[node name="GreenEnemy" parent="." instance=ExtResource("3_4cow7")]
-position = Vector2(41, 32)
-
-[node name="GreenEnemy2" parent="." instance=ExtResource("3_4cow7")]
-position = Vector2(135, 22)
-
-[node name="GreenEnemy3" parent="." instance=ExtResource("3_4cow7")]
-position = Vector2(93, 79)
+[node name="EnemyGenerator" parent="." instance=ExtResource("3_ktlip")]
+position = Vector2(1, 0)
