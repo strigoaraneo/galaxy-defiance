@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://virqucb7n32k"]
+[gd_scene load_steps=7 format=3 uid="uid://virqucb7n32k"]
 
 [ext_resource type="Script" uid="uid://jl5rj133ajg2" path="res://world.gd" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://cikmkfajfd2gb" path="res://player_ship/ship.tscn" id="1_xc17h"]
+[ext_resource type="Resource" uid="uid://ccdrmbbv0jqyw" path="res://game_stats.tres" id="2_dwbse"]
 [ext_resource type="PackedScene" uid="uid://c2aqpppb7lb4k" path="res://effects/space_background.tscn" id="2_nve0y"]
 [ext_resource type="PackedScene" uid="uid://csjyujhloicet" path="res://enemies/enemy_generator.tscn" id="3_ktlip"]
+[ext_resource type="LabelSettings" uid="uid://b3rqcfgt4rycw" path="res://fonts/default_label_settings.tres" id="5_036b0"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_aqk2v")
+game_stats = ExtResource("2_dwbse")
 
 [node name="Ship" parent="." instance=ExtResource("1_xc17h")]
 position = Vector2(80, 216)
@@ -15,4 +18,9 @@ position = Vector2(80, 216)
 player_ship = NodePath("../Ship")
 
 [node name="EnemyGenerator" parent="." instance=ExtResource("3_ktlip")]
-position = Vector2(1, 0)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 28.0
+offset_bottom = 12.0
+text = "Score: "
+label_settings = ExtResource("5_036b0")
