@@ -38,3 +38,10 @@ layout_mode = 2
 text = "Press 'space' to play"
 label_settings = ExtResource("3_jayei")
 horizontal_alignment = 1
+
+[node name="InstructionsLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+Arrow keys to move"
+label_settings = ExtResource("3_jayei")
+horizontal_alignment = 1

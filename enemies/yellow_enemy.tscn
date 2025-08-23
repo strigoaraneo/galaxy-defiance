@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4qpnu2yosml"]
+
+[ext_resource type="PackedScene" uid="uid://ca1h2qot6tk3t" path="res://enemies/enemy.tscn" id="1_sy5vk"]
+[ext_resource type="Script" uid="uid://rf1wmb8g0sg5" path="res://enemies/yellow_enemy.gd" id="2_fg4df"]
+[ext_resource type="Texture2D" uid="uid://d2qtnbia88dnw" path="res://assets/yellow_enemy.png" id="2_kcw3k"]
+[ext_resource type="Script" uid="uid://bb480swmg7q65" path="res://components/border_bounce_component.gd" id="4_m0yjl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg4df"]
+atlas = ExtResource("2_kcw3k")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0yjl"]
+atlas = ExtResource("2_kcw3k")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txmvq"]
+atlas = ExtResource("2_kcw3k")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6uvx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg4df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0yjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txmvq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy5vk"]
+size = Vector2(30, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcw3k"]
+size = Vector2(20, 12)
+
+[node name="YellowEnemy" instance=ExtResource("1_sy5vk")]
+script = ExtResource("2_fg4df")
+horizontal_speed = 20
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_n6uvx")
+autoplay = "default"
+frame_progress = 0.699359
+
+[node name="MoveComponent" parent="." index="1"]
+velocity = Vector2(0, 10)
+
+[node name="StatsComponent" parent="." index="3"]
+health = 6
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="6"]
+position = Vector2(0, 7.7486e-07)
+scale = Vector2(1.5, 0.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_sy5vk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_kcw3k")
+debug_color = Color(0.998759, 0, 0.1334, 0.42)
+
+[node name="ScoreComponent" parent="." index="12"]
+adjust_amount = 10
+
+[node name="BorderBounceComponent" type="Node" parent="." index="13" node_paths=PackedStringArray("actor", "move_component")]
+script = ExtResource("4_m0yjl")
+actor = NodePath("..")
+move_component = NodePath("../MoveComponent")
+metadata/_custom_type_script = "uid://bb480swmg7q65"

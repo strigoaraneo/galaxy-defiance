@@ -1,8 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 
-# Krita backup files
+# Krita files
 *~ 
+*autosave.kra
 
 # VScode
 .vscode/

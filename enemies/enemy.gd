@@ -1,3 +1,5 @@
+class_name Enemy
+
 extends Node2D
 
 @onready var scale_component: ScaleComponent = $ScaleComponent
