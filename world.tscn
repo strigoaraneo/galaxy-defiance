@@ -18,6 +18,7 @@ position = Vector2(80, 216)
 player_ship = NodePath("../Ship")
 
 [node name="EnemyGenerator" parent="." instance=ExtResource("3_ktlip")]
+game_stats = ExtResource("2_dwbse")
 
 [node name="ScoreLabel" type="Label" parent="."]
 offset_right = 28.0

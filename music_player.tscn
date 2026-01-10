@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7wdpkrdm7tk4"]
+
+[ext_resource type="AudioStream" uid="uid://4iqsfbsuidx0" path="res://audio/Split In Synapse.mp3" id="1_fvyft"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_fvyft")
+autoplay = true
+bus = &"music"
